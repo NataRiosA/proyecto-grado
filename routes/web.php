@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
+Route::get('/roles', function () {
+    // $role = Role::create(['name' => 'Coordinador']);
+    // $permission = Permission::create(['name' => 'edit articles']);
+    // $user = \App\Models\User::find(3);
+    // $user->assignRole('Coordinador');
+    // // echo ('Role Ok');
+    // echo ('Asignado Role Ok');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
