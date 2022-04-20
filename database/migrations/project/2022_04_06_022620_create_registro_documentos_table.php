@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('registro_documentos', function (Blueprint $table) {
             $table->id();
             $table->string('date');
-            $table->string('name')->unique()->nullable();
-            $table->mediumText('document')->nullable();
-            $table->text('image')-> nullable();
+            $table->string('name');
+            $table->string('document');
+            $table->string('image');
             $table->timestamps();
         });
     }
