@@ -17,18 +17,35 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 Route::get('/roles', function () {
-    // $role = Role::create(['name' => 'Coordinador']);
+    $roleAdmin = Role::create(['name' => 'Administrador']);
+    $roleCordi = Role::create(['name' => 'Coordinador']);
+
     // $permission = Permission::create(['name' => 'edit articles']);
-    // $user = \App\Models\User::find(3);
-    // $user->assignRole('Coordinador');
-    // // echo ('Role Ok');
-    // echo ('Asignado Role Ok');
+    $userAdmin = \App\Models\User::find(1);
+    $userAdmin->assignRole('Administrador');
+    echo ('Role Admin Ok');
+
+    $userCordi = \App\Models\User::find(2);
+    $userCordi->assignRole('Coordinador');
+    echo ('Role Cordi Ok');
 });
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
+
+    // Route::resource('/registro', App\Http\Controllers\RegistroDocumentoController::class);
+
+    Route::group(['prefix' => 'registros', 'controller' => App\Http\Controllers\RegistroDocumentoController::class], function () {
+        Route::get('/', 'index')->name('registro.index');
+        Route::get('/create', 'create')->name('registro.create');
+        Route::post('/store', 'store')->name('registro.store');
+    });
+});
