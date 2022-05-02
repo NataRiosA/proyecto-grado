@@ -38,29 +38,30 @@
             </div>
 
             <div class="card-body">
-                <form method="POST" action="{{ route('registro.store') }}" accept-charset="UTF-8" enctype="multipart/form-data">
-                    {{ csrf_field()}}
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <label for="date">Fecha de firma:</label>
-                            <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control" disabled>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="name">Nombre:</label>
-                            <input type="text" name="name" value="{{ $registro->name }}" class="form-control" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="document">Documento:</label>
-                            <input type="file" name="document" value="" class="form-control" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="image">Imagen:</label>
-                            <input type="file" name="image" value="" class="form-control" required>
-                        </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="date">Fecha de firma:</label>
+                        <input type="date" name="date" value="{{ $registro->date }}" class="form-control" disabled>
                     </div>
-                    {{-- <span class="help-block">La contraseña será enviada a tu correo electrónico</span> --}}
-                    <button href="#" class="btn btn-primary btn-block mt-4">Guardar Reporte</button>
-                </form>
+                    <div class="form-group col-md-6">
+                        <label for="name">Nombre:</label>
+                        <input type="text" name="name" value="{{ $registro->name }}" class="form-control" disabled>
+                    </div>
+                    <div class="form-group col-md-12 m-auto">
+                        <label for="document" class="m-auto">Imagenes de Documento</label>
+                        {{-- local --}}
+                        <img src="/file/documents/{{ $registro->document }}" alt="" class="m-auto">
+                        {{-- server --}}
+                        <img src="/public/file/documents/{{ $registro->document }}" alt="" class="m-auto">
+                    </div>
+                    <div class="form-group col-md-12 m-auto">
+                        <label for="document" class="m-auto">Imagen</label>
+                        {{-- local --}}
+                        <img src="/file/images/{{ $registro->image }}" alt="" class="m-auto">
+                        {{-- server --}}
+                        <img src="/public/file/images/{{ $registro->image }}" alt="" class="m-auto">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

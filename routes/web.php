@@ -32,7 +32,7 @@ Route::get('/roles', function () {
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
@@ -41,11 +41,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::view('/dashboard', 'dashboard')->name('dashboard');
 
-    // Route::resource('/registro', App\Http\Controllers\RegistroDocumentoController::class);
-
     Route::group(['prefix' => 'registros', 'controller' => App\Http\Controllers\RegistroDocumentoController::class], function () {
         Route::get('/', 'index')->name('registro.index');
         Route::get('/create', 'create')->name('registro.create');
         Route::post('/store', 'store')->name('registro.store');
+        Route::get('/show/{registro}', 'show')->name('registro.show');
+        Route::delete('/destroy/{registro}', 'destroy')->name('registro.destroy');
     });
 });

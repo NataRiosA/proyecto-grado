@@ -72,28 +72,24 @@
                                     <td>{{ $registro->document }}</td>
                                     <td>{{ $registro->image }}</td>
                                     <td>
-                                        <a href=""
+                                        <a href="{{ route('registro.show', $registro) }}"
                                             class="btn btn-xs btn-primary"
                                             target="_blank">
                                             Ver
                                         </a>
-                                        <a href=""
+                                        {{-- <a href=""
                                             class="btn btn-xs btn-info">
                                             Editar
-                                        </a>
-                                        <a href=""
-                                            class="btn btn-xs btn-danger">
-                                            Eliminar
-                                    </a>
-                                        {{-- <form method="POST"
-                                            action="{{ route('admin.posts.destroy', $post) }}"
+                                        </a> --}}
+                                        <form method="POST"
+                                            action="{{ route('registro.destroy', $registro) }}"
                                             style="display: inline">
                                             {{ csrf_field() }} {{ method_field('DELETE') }}
                                             <button class="btn btn-xs btn-danger"
-                                                onclick="return confirm('¿Seguro que quieres eliminar esta cinta?')">
-                                                <i class="fa fa-times"></i>
+                                                onclick="return confirm('¿Seguro que quieres eliminar este registro?')">
+                                                Eliminar
                                             </button>
-                                        </form> --}}
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -105,13 +101,4 @@
 			</div>
 		</div>
     </div>
-<script>
-    $(document).ready(() => {
-        $('#example').DataTable({
-            dom: 'Bfrtip',
-            buttons: ['csv', 'excel', 'pdf', 'print'],
-            processing: true
-        });
-    });
-</script>
 </x-app-layout>
