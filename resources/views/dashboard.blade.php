@@ -45,34 +45,12 @@
 			<div class="card-header">
 				<i class="fa fa-align-justify"></i> Reporte
 			</div>
-			<div class="card-body">
 
-                    <form method="POST" action="">
-                        {{ csrf_field()}}
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="name">Fecha de firma:</label>
-                                <input type="date" name="name" value="" class="form-control">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Nombre:</label>
-                                <input type="text" name="name" value="" class="form-control">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="email">Documento:</label>
-                                <input type="file" name="email" value="" class="form-control">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="email">Imagen:</label>
-                                <input type="file" name="email" value="" class="form-control">
-                            </div>
-                        </div>
-                        {{-- <span class="help-block">La contraseña será enviada a tu correo electrónico</span> --}}
-                        <button href="#" class="btn btn-primary btn-block mt-4">Guardar Reporte</button>
-                    </form>
-				{{-- <div class="form-inline justify-content-center my-3">
-					<button type="button" onclick="downloadPdf()" class="btn btn-primary mb-2">Descargar reporte en pdf</button>
-				</div> --}}
+			<div class="card-body">
+                {{-- @role('Coordinador') --}}
+                <a href="/registros/create" class="btn btn-xs btn-primary">Generar nuevo reporte</a>
+                {{-- @endrole --}}
+                {{-- @role('Administrador') --}}
 				<div class="table-responsive mt-4">
                     <table id="example" class="table table-bordered table-striped">
                         <thead>
@@ -86,12 +64,13 @@
 							</tr>
 						</thead>
                             <tbody>
+                                @foreach ($registros as $registro)
                                 <tr>
-                                    <td>fecha1</td>
-                                    <td>nombre1</td>
-                                    <td>id1</td>
-                                    <td>documento</td>
-                                    <td>image1</td>
+                                    <td>{{ $registro->id }}</td>
+                                    <td>{{ $registro->date }}</td>
+                                    <td>{{ $registro->name }}</td>
+                                    <td>{{ $registro->document }}</td>
+                                    <td>{{ $registro->image }}</td>
                                     <td>
                                         <a href=""
                                             class="btn btn-xs btn-primary"
@@ -117,16 +96,15 @@
                                         </form> --}}
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </thead>
 					</table>
 				</div>
+                {{-- @endrole --}}
 			</div>
 		</div>
     </div>
-    {{-- @push('scripts')
-        @include('components.script_datatables')
-    @endpush --}}
 <script>
     $(document).ready(() => {
         $('#example').DataTable({
