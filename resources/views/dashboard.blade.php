@@ -47,57 +47,58 @@
 			</div>
 
 			<div class="card-body">
-                {{-- @role('Coordinador') --}}
-                <a href="/registros/create" class="btn btn-xs btn-primary">Generar nuevo reporte</a>
-                {{-- @endrole --}}
-                {{-- @role('Administrador') --}}
-				<div class="table-responsive mt-4">
-                    <table id="example" class="table table-bordered table-striped">
-                        <thead>
-							<tr>
-								<th>Id registro</th>
-								<th>Fecha de firma</th>
-								<th>Nombre</th>
-								<th>Documento</th>
-                                <th>Imagen</th>
-                                <th>Actions</th>
-							</tr>
-						</thead>
-                            <tbody>
-                                @foreach ($registros as $registro)
+                @role('Coordinador|Developer')
+                    <a href="/registros/create" class="btn btn-xs btn-primary">Generar nuevo reporte</a>
+                @endrole
+
+                @role('Administrador|Developer')
+                    <div class="table-responsive mt-4">
+                        <table id="example" class="table table-bordered table-striped">
+                            <thead>
                                 <tr>
-                                    <td>{{ $registro->id }}</td>
-                                    <td>{{ $registro->date }}</td>
-                                    <td>{{ $registro->name }}</td>
-                                    <td>{{ $registro->document }}</td>
-                                    <td>{{ $registro->image }}</td>
-                                    <td>
-                                        <a href="{{ route('registro.show', $registro) }}"
-                                            class="btn btn-xs btn-primary"
-                                            target="_blank">
-                                            Ver
-                                        </a>
-                                        {{-- <a href=""
-                                            class="btn btn-xs btn-info">
-                                            Editar
-                                        </a> --}}
-                                        <form method="POST"
-                                            action="{{ route('registro.destroy', $registro) }}"
-                                            style="display: inline">
-                                            {{ csrf_field() }} {{ method_field('DELETE') }}
-                                            <button class="btn btn-xs btn-danger"
-                                                onclick="return confirm('¿Seguro que quieres eliminar este registro?')">
-                                                Eliminar
-                                            </button>
-                                        </form>
-                                    </td>
+                                    <th>Id registro</th>
+                                    <th>Fecha de firma</th>
+                                    <th>Nombre</th>
+                                    <th>Documento</th>
+                                    <th>Foto</th>
+                                    <th>Actions</th>
                                 </tr>
-                                @endforeach
-                            </tbody>
-                        </thead>
-					</table>
-				</div>
-                {{-- @endrole --}}
+                            </thead>
+                                <tbody>
+                                    @foreach ($registros as $registro)
+                                    <tr>
+                                        <td>{{ $registro->id }}</td>
+                                        <td>{{ $registro->date }}</td>
+                                        <td>{{ $registro->name }}</td>
+                                        <td>{{ $registro->document }}</td>
+                                        <td>{{ $registro->image }}</td>
+                                        <td>
+                                            <a href="{{ route('registro.show', $registro) }}"
+                                                class="btn btn-xs btn-primary"
+                                                target="_blank">
+                                                Ver
+                                            </a>
+                                            {{-- <a href=""
+                                                class="btn btn-xs btn-info">
+                                                Editar
+                                            </a> --}}
+                                            <form method="POST"
+                                                action="{{ route('registro.destroy', $registro) }}"
+                                                style="display: inline">
+                                                {{ csrf_field() }} {{ method_field('DELETE') }}
+                                                <button class="btn btn-xs btn-danger"
+                                                    onclick="return confirm('¿Seguro que quieres eliminar este registro?')">
+                                                    Eliminar
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </thead>
+                        </table>
+                    </div>
+                @endrole
 			</div>
 		</div>
     </div>

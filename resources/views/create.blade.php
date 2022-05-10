@@ -54,7 +54,7 @@
                             <input type="file" name="document" value="" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="image">Imagen:</label>
+                            <label for="image">Foto:</label>
                             <input type="file" name="image" value="" class="form-control" required>
                         </div>
                     </div>

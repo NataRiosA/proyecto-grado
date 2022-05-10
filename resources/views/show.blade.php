@@ -55,7 +55,7 @@
                         <img src="/public/file/documents/{{ $registro->document }}" alt="" class="m-auto">
                     </div>
                     <div class="form-group col-md-12 m-auto">
-                        <label for="document" class="m-auto">Imagen</label>
+                        <label for="document" class="m-auto">Foto</label>
                         {{-- local --}}
                         <img src="/file/images/{{ $registro->image }}" alt="" class="m-auto">
                         {{-- server --}}

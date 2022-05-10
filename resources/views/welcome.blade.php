@@ -25,12 +25,12 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/registros') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Zonas Humedas SAS</a>
+                        <a href="{{ url('/registros') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Menu Zonas Humedas SAS</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Iniciar Sesión</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Registro Usuario</a>
                         @endif
                     @endauth
                 </div>
@@ -38,8 +38,9 @@
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <h1>Alturas Integrados</h1>
+            <center><h3>Zonas Humedas SAS</h3></center>
                     <div class="grid grid-cols-1 md:grid-cols-2">
-                        <img src="{{url('/images/zonash.jpg')}}" alt="Image"/>
+                        {{-- <img src="{{url('/images/zonash.jpg')}}" alt="Image"/> --}}
                     </div>
             </div>
         </div>
