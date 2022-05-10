@@ -37,11 +37,8 @@
             @endif
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-            <h1>Alturas Integrados</h1>
-            <center><h3>Zonas Humedas SAS</h3></center>
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        {{-- <img src="{{url('/images/zonash.jpg')}}" alt="Image"/> --}}
-                    </div>
+                <h1>Alturas Integrados</h1>
+                <center><h3>Zonas Humedas SAS</h3></center>
             </div>
         </div>
     </body>
