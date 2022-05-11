@@ -54,10 +54,10 @@
                         {{-- server --}}
                         <img src="/public/file/documents/{{ $registro->document }}" alt="" class="m-auto">
 
-                        {{-- local --}}
-                        <iframe src="/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" /></iframe>
                         {{-- server --}}
-                        <iframe src="/public/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" /></iframe>
+                        <iframe src="/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" /></iframe>
+                        {{-- local --}}
+                        {{-- <iframe src="/public/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" /></iframe> --}}
                     </div>
                     <div class="form-group col-md-12 m-auto">
                         <label for="document" class="m-auto">Foto</label>
