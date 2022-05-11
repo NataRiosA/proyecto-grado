@@ -50,9 +50,9 @@
                     <div class="form-group col-md-12 m-auto">
                         <label for="document" class="m-auto">Documento</label>
                         {{-- local --}}
-                        <img src="/file/documents/{{ $registro->document }}" alt="" class="m-auto">
+                        {{-- <img src="/file/documents/{{ $registro->document }}" alt="" class="m-auto"> --}}
                         {{-- server --}}
-                        <img src="/public/file/documents/{{ $registro->document }}" alt="" class="m-auto">
+                        {{-- <img src="/public/file/documents/{{ $registro->document }}" alt="" class="m-auto"> --}}
 
                         {{-- server --}}
                         <iframe src="/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" /></iframe>
