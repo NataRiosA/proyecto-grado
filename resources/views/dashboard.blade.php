@@ -102,4 +102,13 @@
 			</div>
 		</div>
     </div>
+    <script>
+        $(document).ready(() => {
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: ['csv', 'excel', 'pdf', 'print'],
+                processing: true
+            });
+        });
+    </script>
 </x-app-layout>

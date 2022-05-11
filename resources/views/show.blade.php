@@ -48,11 +48,16 @@
                         <input type="text" name="name" value="{{ $registro->name }}" class="form-control" disabled>
                     </div>
                     <div class="form-group col-md-12 m-auto">
-                        <label for="document" class="m-auto">Imagenes de Documento</label>
+                        <label for="document" class="m-auto">Documento</label>
                         {{-- local --}}
                         <img src="/file/documents/{{ $registro->document }}" alt="" class="m-auto">
                         {{-- server --}}
                         <img src="/public/file/documents/{{ $registro->document }}" alt="" class="m-auto">
+
+                        {{-- local --}}
+                        {{-- <embed src="/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" /> --}}
+                        {{-- server --}}
+                        <embed src="/public/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" />
                     </div>
                     <div class="form-group col-md-12 m-auto">
                         <label for="document" class="m-auto">Foto</label>
