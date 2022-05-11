@@ -55,9 +55,9 @@
                         <img src="/public/file/documents/{{ $registro->document }}" alt="" class="m-auto">
 
                         {{-- local --}}
-                        {{-- <embed src="/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" /> --}}
+                        <iframe src="/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" /></iframe>
                         {{-- server --}}
-                        <embed src="/public/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" />
+                        <iframe src="/public/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" /></iframe>
                     </div>
                     <div class="form-group col-md-12 m-auto">
                         <label for="document" class="m-auto">Foto</label>
