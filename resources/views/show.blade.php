@@ -55,7 +55,7 @@
                         {{-- <img src="/public/file/documents/{{ $registro->document }}" alt="" class="m-auto"> --}}
 
                         {{-- server --}}
-                        <iframe src="/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" /></iframe>
+                        <iframe src="/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px"></iframe>
                         {{-- local --}}
                         {{-- <iframe src="/public/file/documents/{{ $registro->document }}" type="application/pdf" width="100%" height="600px" /></iframe> --}}
                     </div>

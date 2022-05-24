@@ -41,7 +41,7 @@
                         @endauth
                     </div>
                 @endif
-
+                <a href="{{ route('induction') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"> <h3>Inducción y certificación</h3></a>
             </div>
         </center>
     </body>

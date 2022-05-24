@@ -13,18 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// use Spatie\Permission\Models\Role;
-// use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
-// Route::get('/roles', function () {
+Route::get('/roles', function () {
 //     // $roleAdmin = Role::create(['name' => 'Administrador']);
 //     // $roleCordi = Role::create(['name' => 'Coordinador']);
-//     $roleDev = Role::create(['name' => 'Developer']);
+    $roleDev = Role::create(['name' => 'Developer']);
 
 //     // $permission = Permission::create(['name' => 'edit articles']);
-//     $userDev = \App\Models\User::find(1);
-//     $userDev->assignRole('Developer');
-//     echo ('Role Developer Ok');
+    $userDev = \App\Models\User::find(1);
+    $userDev->assignRole('Developer');
+    echo ('Role Developer Ok');
 
 //     $userAdmin = \App\Models\User::find(3);
 //     $userAdmin->assignRole('Administrador');
@@ -33,11 +33,15 @@ use Illuminate\Support\Facades\Route;
 //     $userCordi = \App\Models\User::find(4);
 //     $userCordi->assignRole('Coordinador');
 //     echo ('Role Cordi Ok');
-// });
+});
 
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+// Route:get('/induccion => ')
+Route::view('/induccion', 'induction')->name('induction');
+Route::view('/encuesta', 'quiz')->name('quiz');
 
 Route::middleware(['auth'])->group(function () {
 
